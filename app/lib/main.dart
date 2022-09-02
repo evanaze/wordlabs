@@ -4,6 +4,8 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:wordlabs/constants.dart';
 import 'package:wordlabs/homepage.dart';
 import 'package:wordlabs/pages/home.dart';
+import 'package:wordlabs/views/screens/auth/login.dart';
+import 'package:wordlabs/views/screens/auth/signup.dart';
 
 void main() => runApp(const MyApp());
 
@@ -19,9 +21,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: HomePage(),
-        theme: ThemeData.dark()
-            .copyWith(scaffoldBackgroundColor: backgroundColor));
+      debugShowCheckedModeBanner: false,
+      home: SignupScreen(),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: backgroundColor,
+      ),
+    );
   }
 }

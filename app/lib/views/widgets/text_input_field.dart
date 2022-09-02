@@ -22,7 +22,9 @@ class TextInputField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         prefixIcon: Icon(icon),
-        labelStyle: const TextStyle(fontSize: 25),
+        labelStyle: const TextStyle(
+          fontSize: 20,
+        ),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
             borderSide: const BorderSide(color: borderColor)),
