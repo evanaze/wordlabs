@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wordlabs/constants.dart';
+import 'package:wordlabs/controllers/auth_controller.dart';
 import 'package:wordlabs/views/widgets/text_input_field.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -45,9 +46,7 @@ class SignupScreen extends StatelessWidget {
                   bottom: -10,
                   left: 80,
                   child: IconButton(
-                    onPressed: () {
-                      print('Pick image');
-                    },
+                    onPressed: () => authController.pickImage(),
                     icon: const Icon(
                       Icons.add_a_photo,
                     ),
@@ -105,9 +104,11 @@ class SignupScreen extends StatelessWidget {
                 ),
               ),
               child: InkWell(
-                onTap: () {
-                  print('Register User');
-                },
+                onTap: () => authController.registerUser(
+                    _usernameController.text,
+                    _emailController.text,
+                    _passwordController.text,
+                    authController.profilePhoto),
                 child: const Center(
                   child: Text(
                     'Register',

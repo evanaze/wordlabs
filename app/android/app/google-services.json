@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "460429200753",
+    "project_id": "wordlabs-19c42",
+    "storage_bucket": "wordlabs-19c42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460429200753:android:d5e5b6af1ee4e3eded7ad0",
+        "android_client_info": {
+          "package_name": "com.example.wordlabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "460429200753-h81d39nr4te552g36umrv453s61bhe52.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAswHJdwwXzbmvPDHdsoupHQPVroxDYSJE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "460429200753-h81d39nr4te552g36umrv453s61bhe52.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "460429200753-j8e51i3dqmg72sc33plur2bobet1lugl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.wordlabs"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
