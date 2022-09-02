@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_html/flutter_html.dart';
+import 'package:wordlabs/constants.dart';
 import 'package:wordlabs/homepage.dart';
 import 'package:wordlabs/pages/home.dart';
 
@@ -20,6 +21,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: HomePage(),
-        theme: ThemeData(brightness: Brightness.dark));
+        theme: ThemeData.dark()
+            .copyWith(scaffoldBackgroundColor: backgroundColor));
   }
 }
