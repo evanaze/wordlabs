@@ -9,11 +9,11 @@ import 'package:wordlabs/models/user.dart' as model;
 class AuthController extends GetxController {
   static AuthController instance = Get.find();
 
-  Rx<File?> _pickedImage;
+  late Rx<File?> _pickedImage;
 
   File? get profilePhoto => _pickedImage.value;
 
-  pickImage() async {
+  void pickImage() async {
     final pickedImage =
         await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
