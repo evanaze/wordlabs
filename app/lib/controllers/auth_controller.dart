@@ -5,11 +5,30 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:wordlabs/constants.dart';
 import 'package:wordlabs/models/user.dart' as model;
+import 'package:wordlabs/views/screens/auth/login.dart';
+import 'package:wordlabs/views/screens/homepage.dart';
 
 class AuthController extends GetxController {
   static AuthController instance = Get.find();
 
+  late Rx<User?> _user;
   late Rx<File?> _pickedImage;
+
+  @override
+  void onReady() {
+    super.onReady();
+    _user = Rx<User?>(firebaseAuth.currentUser);
+    _user.bindStream(firebaseAuth.authStateChanges());
+    ever(_user, _setInitialScreen);
+  }
+
+  _setInitialScreen(User? user) {
+    if (user == null) {
+      Get.offAll(() => LoginScreen());
+    } else {
+      Get.offAll(() => const HomePage());
+    }
+  }
 
   File? get profilePhoto => _pickedImage.value;
 
@@ -69,6 +88,24 @@ class AuthController extends GetxController {
     } catch (e) {
       Get.snackbar(
         'Error creating account',
+        e.toString(),
+      );
+    }
+  }
+
+  void loginUser(String email, String password) async {
+    try {
+      if (email.isNotEmpty && password.isNotEmpty) {
+        await firebaseAuth.signInWithEmailAndPassword(
+            email: email, password: password);
+        print('Login success');
+      } else {
+        Get.snackbar('Error logging in', 'Please enter all of the fields');
+      }
+      ;
+    } catch (e) {
+      Get.snackbar(
+        'Error logging in user',
         e.toString(),
       );
     }
