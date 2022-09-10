@@ -9,8 +9,9 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15.0),
-        child: Column(children: [
+      padding: const EdgeInsets.symmetric(vertical: 15.0),
+      child: Column(
+        children: [
           Icon(
             icon,
             size: 40,
@@ -19,6 +20,8 @@ class MyButton extends StatelessWidget {
             height: 10,
           ),
           Text(number),
-        ]));
+        ],
+      ),
+    );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wordlabs/pages/home.dart';
-import 'package:wordlabs/pages/inbox.dart';
 import 'package:wordlabs/pages/plus.dart';
 import 'package:wordlabs/pages/profile.dart';
+import 'package:wordlabs/pages/saved.dart';
 import 'package:wordlabs/pages/search.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,8 +24,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     UserHomePage(),
     UserSearchPage(),
-    UserPlusPage(),
-    UserInboxPage(),
+    UserSavedPage(),
     UserProfilePage(),
   ];
 
@@ -40,10 +39,7 @@ class _HomePageState extends State<HomePage> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.add_box_rounded), label: ''),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.chat_bubble_rounded), label: 'Inbox'),
+            BottomNavigationBarItem(icon: Icon(Icons.bookmark), label: 'Saved'),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           ]),
     );
