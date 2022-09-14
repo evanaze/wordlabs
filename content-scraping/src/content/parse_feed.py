@@ -17,8 +17,6 @@ class ContentScraper:
         self.db = None
         self.feeds = None
         self.author = None
-        self.content = None
-        self.filename = None
 
     def get_feeds(self):
         """Get the list of acceptable URLs from a YAML file."""
@@ -39,8 +37,11 @@ class ContentScraper:
 
     def write_content_html(self):
         """Write content to HTML files."""
-        with open(f"data/{self.filename}", "w", encoding="utf-8") as html_file:
-            html_file.write(self.content)
+        content = str(self.entry["content"][0]["value"]).encode("utf-8")
+        filename = os.path.basename(self.entry["link"])
+        filename += ".html" if filename.endswith("html") else filename
+        with open(f"data/{filename}", "w", encoding="utf-8") as html_file:
+            html_file.write(content)
 
     def write_content_firebase(self):
         """Write the article's content to Firebase DB."""
@@ -68,7 +69,7 @@ class ContentScraper:
                 self.write_content_firebase()
 
     def main(self):
-        self.get_urls()
+        self.get_feeds()
         self.authenticate_firebase()
         self.scrape_content()
 
